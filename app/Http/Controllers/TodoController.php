@@ -10,7 +10,7 @@ class TodoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Responses
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -19,8 +19,8 @@ class TodoController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * 
-     * @param \Illuminate\Http\Request $request
+     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -30,11 +30,11 @@ class TodoController extends Controller
 
     /**
      * Display the specified resource.
-     * 
-     * @param int $id
+     *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(string $id)
+    public function show($id)
     {
         $todo = Todo::find($id);
         return $todo;
@@ -42,12 +42,12 @@ class TodoController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * 
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     *@return \Illuminate\http\Response 
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         $todo = Todo::find($id);
         $todo->update($request->all());
@@ -56,11 +56,11 @@ class TodoController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     * 
-     * @param int $id
+     *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         return Todo::destroy($id);
     }
